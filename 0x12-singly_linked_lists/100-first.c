@@ -3,8 +3,7 @@
 void kwanza(void) __attribute__ ((constructor));
 
 /**
- * kwanza - prints a sentence before the main
- * function is executed
+ * kwanza - prints a sentence before the main function is executed
  */
 void kwanza(void)
 {
