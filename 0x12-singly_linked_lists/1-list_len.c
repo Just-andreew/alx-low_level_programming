@@ -9,14 +9,14 @@
  */
 size_t list_len(const list_t *h)
 {
-	size_t n = 0;
+	size_t z = 0;
 
 	while (h)
 	{
-		n++;
-		h = h->next;
+		z++;
+		h = (*h).next;
 	}
-	return (n);
+	return (z);
 }
 
 
