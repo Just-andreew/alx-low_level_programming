@@ -4,8 +4,8 @@
 #include <unistd.h>
 
 /**
- * read_textfile - Read text file and print to STDOUT.
- * @filename: Name of the text file to read.
+ * read_textfile - Reads the text file and prints to STDOUT.
+ * @filename: This is the naame of the text file to read.
  * @letters: Number of letters to be read.
  *
  * Return: Number of bytes read and printed on success, 0 on failure.
