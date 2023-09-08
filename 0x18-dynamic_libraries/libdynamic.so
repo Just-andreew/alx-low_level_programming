@@ -1,0 +1,20 @@
+#!/bin/bash
+gcc -Wall -fPIC -c function_name.c -o function_name.o
+gcc -shared -o libdynamic.so function_name1.o function_name2.o ... function_nameN.o
+export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
+# Compile each function file into object files
+gcc -Wall -fPIC -c function1.c -o function1.o
+gcc -Wall -fPIC -c function2.c -o function2.o
+# ... Repeat for other function files
+
+# Create the dynamic library
+gcc -shared -o libdynamic.so function1.o function2.o # ... Add other object files
+
+# Update LD_LIBRARY_PATH to include the library directory
+export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
+
+# Compile your program using the dynamic library
+gcc -Wall -pedantic -Werror -Wextra -L. 0-main.c -ldynamic -o len
+
+# Run your program
+./len
