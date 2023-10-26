@@ -9,8 +9,7 @@
     Returns:
         int: The perimeter of the island.
     """
-        perimeter = 0
-
+    perimeter = 0
     for row in range(len(grid)):
         for col in range(len(grid[row]):
             if grid[row][col] == 1:
