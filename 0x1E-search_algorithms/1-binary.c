@@ -1,45 +1,51 @@
 #include "search_algos.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-
 /**
- * binary_search - Searches for a value in a sorted array using binary search
- * @array: Pointer to the first element of the array to search in
- * @size: Number of elements in the array
- * @value: The value to search for
- *
- * Return: The index where the value is located, or -1 if not present
+ * print_array - print values of actual array
+ * @array: array given as parameter
+ * @left: left index of the array
+ * @right: right index of the array
+ * Return: void
+ */
+void print_array(int *array, int left, int right)
+{
+
+	while (left <= right)
+	{
+		if (left < right)
+			printf("%d, ", array[left]);
+		else
+			printf("%d", array[left]);
+		left = left + 1;
+	}
+	printf("\n");
+}
+/**
+ * binary_search - performs binary search over a given array
+ * @array: given array
+ * @size: array size
+ * @value: value to search
+ * Return: index of value if it's found otherwise -1
  */
 int binary_search(int *array, size_t size, int value)
 {
-    size_t left = 0, right = size - 1, mid;
+	int begin, end, middle;
 
-    if (array == NULL)
-        return -1;
+	if (array == NULL)
+		return (-1);
 
-    while (left <= right)
-    {
-        mid = (left + right) / 2;
-
-        printf("Searching in array: ");
-        for (size_t i = left; i <= right; i++)
-        {
-            printf("%d", array[i]);
-            if (i < right)
-                printf(", ");
-        }
-        printf("\n");
-
-        if (array[mid] == value)
-            return mid;
-
-        if (array[mid] < value)
-            left = mid + 1;
-        else
-            right = mid - 1;
-    }
-
-    return -1;
+	begin = 0;
+	end = (int)size - 1;
+	while (begin <= end)
+	{
+		printf("Searching in array: ");
+		print_array(array, begin, end);
+		middle = (double)((begin + end) / 2);
+		if (array[middle] == value)
+			return ((int)middle);
+		else if (value > array[middle])
+			begin = middle + 1;
+		else
+			end = middle - 1;
+	}
+	return (-1);
 }
-
